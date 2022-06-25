@@ -9,3 +9,9 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         """Return the all greetings."""
         return fitness.objects.all()
+
+class ResultsView(generic.edit.CreateView):
+    template_name = 'fitness/results.html'
+    model = fitness
+    fields = ['message']
+    success_url = reverse_lazy('fitness:index')
