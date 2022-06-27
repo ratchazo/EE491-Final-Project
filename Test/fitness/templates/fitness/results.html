@@ -2,36 +2,48 @@
 
 <head>
     <title>Daily Calorie Intake</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- pie chart -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
 </head>
 
 <body onload="CalorieGraph()">
+    <h1>Daily Calorie Intake</h1>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light, border border-secondary">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'fitness:index' %}">Home</a>
+            <a class="nav-item nav-link active" href="{% url 'fitness:results' %}">Daily Calorie Intake(current)</a>
+        </div>
+    </nav>
     <script>
-        function CalorieGraph() {//from   w w  w. j  a v  a 2  s . c  o  m
+        <script>
+            function CalorieGraph() {//from   w w  w. j  a v  a 2  s . c  o  m
             var breakfast = document.CalorieForm.Breakfast.value,
-                lunch = document.CalorieForm.Lunch.value,
-                dinner = document.CalorieForm.Dinner.value,
-                snacks = document.CalorieForm.Snacks.value,
-                ctx = document.getElementById('Calorieratio').getContext('2d');
+            lunch = document.CalorieForm.Lunch.value,
+            dinner = document.CalorieForm.Dinner.value,
+            snacks = document.CalorieForm.Snacks.value,
+            ctx = document.getElementById('Calorieratio').getContext('2d');
             var data = {
                 labels: ["Breakfast", "Lunch", "Dinner", "Snacks"],
-                datasets:
-                    [{
-                        data: [breakfast, lunch, dinner, snacks],
-                        backgroundColor: ["#EF0000", "#0000EF", "#0EF000", "#EF0"],
-                        hoverBackgroundColor: ["#FF0000", "#0000FF", "#0FF000", "#FF0"]
+            datasets:
+            [{
+                data: [breakfast, lunch, dinner, snacks],
+            backgroundColor: ["#EF0000", "#0000EF", "#0EF000", "#EF0"],
+            hoverBackgroundColor: ["#FF0000", "#0000FF", "#0FF000", "#FF0"]
                     }]
             };
-            var options = {};
+            var options = { };
             var myPieChart = new Chart(ctx, {
                 type: 'pie',
-                data: data,
-                options: options
+            data: data,
+            options: options
             });
         }
 
     </script>
-    <h1>Daily Calorie Intake</h1>
     <form name="CalorieForm" method="post">
         Please enter the amount of calories consumed below:
         <br><br>
