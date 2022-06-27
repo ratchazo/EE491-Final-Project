@@ -24,15 +24,14 @@
         lunch = document.CalorieForm.Lunch.value,
         dinner = document.CalorieForm.Dinner.value,
         snacks = document.CalorieForm.Snacks.value,
-        goal = document.CalorieForm.Goal.value,
         ctx = document.getElementById('Calorieratio').getContext('2d');
       var data = {
-        labels: ["Breakfast", "Lunch", "Dinner", "Snacks", "Goal"],
+        labels: ["Breakfast", "Lunch", "Dinner", "Snacks"],
         datasets:
           [{
-            data: [breakfast, lunch, dinner, snacks, goal],
-            backgroundColor: ["#EF0000", "#0000EF", "#0EF000", "#EF0", "#000000",],
-            hoverBackgroundColor: ["#FF0000", "#0000FF", "#0FF000", "#FF0", "#000000",]
+            data: [breakfast, lunch, dinner, snacks],
+            backgroundColor: ["#EF0000", "#0000EF", "#0EF000", "#EF0"],
+            hoverBackgroundColor: ["#FF0000", "#0000FF", "#0FF000", "#FF0"]
           }]
       };
       var options = {};
@@ -51,7 +50,6 @@
     Lunch: <br><input type="number" name="Lunch" value=""> cals<br><br>
     Dinner: <br><input type="number" name="Dinner" value=""> cals<br><br>
     Snacks: <br><input type="number" name="Snacks" value=""> cals<br><br>
-    Goal(from home page): <br><input type="number" name="Goal" value=""> cals<br><br>
     <button type="button" onclick="CalorieGraph();">Generate Pie Chart</button>
     <canvas id="Calorieratio" height="50"></canvas>
   </form>
