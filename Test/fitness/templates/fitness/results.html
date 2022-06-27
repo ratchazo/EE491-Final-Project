@@ -5,6 +5,16 @@
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- allows dropdown menu to work -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <!-- pie chart -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
 </head>
@@ -14,8 +24,27 @@
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light, border border-secondary">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="{% url 'fitness:index' %}">Home</a>
-            <a class="nav-item nav-link active" href="{% url 'fitness:results' %}">Daily Calorie Intake(current)</a>
+            <a class="nav-item nav-link active" href="{% url 'fitness:index' %}">Home (current)</a>
+            <a class="nav-item nav-link active" href="{% url 'fitness:results' %}">Daily Calorie Intake</a>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    {% if user.is_authenticated %}
+                    {{request.user}}
+                    {% else %}
+                    Account
+                    {% endif %}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'accounts:login' %}" class="ml-2">Log In</a>
+                    <a class="dropdown-item" href="{% url 'accounts:signup' %}" class="ml-2">Sign up</a>
+                    <div class="dropdown-divider"></div>
+                    {% if user.is_authenticated %}
+                    <a class="dropdown-item" href="{% url 'accounts:logout' %}" class="ml-2">Log Out</a>
+                    {% endif %}
+                </div>
+            </li>
         </div>
     </nav>
     <script>
