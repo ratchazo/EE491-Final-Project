@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import *
 from .forms import CreateUserForm
 
+
 # Create your views here.
 def LoginView(request):
     if request.user.is_authenticated:
@@ -25,6 +26,7 @@ def LoginView(request):
                 messages.info(request, 'Username or Password is incorrect')
         return render(request, 'accounts/login.html', {})
 
+
 def SignUpView(request):
     if request.user.is_authenticated:
         return redirect('fitness:index')
@@ -37,8 +39,9 @@ def SignUpView(request):
                 return redirect('accounts:login')
         else:
             form = CreateUserForm()
-        return render(request, 'accounts/signup.html', {'form':form})
+        return render(request, 'accounts/signup.html', {'form': form})
+
 
 def LogOutView(request):
-	logout(request)
-	return redirect('accounts:login')
+    logout(request)
+    return redirect('accounts:login')
