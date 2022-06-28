@@ -24,7 +24,7 @@
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light, border border-secondary">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="{% url 'fitness:index' %}">Home (current)</a>
+            <a class="nav-item nav-link active" href="{% url 'fitness:index' %}">Home</a>
             <a class="nav-item nav-link active" href="{% url 'fitness:results' %}">Daily Calorie Intake</a>
 
             <li class="nav-item dropdown">
@@ -82,7 +82,6 @@
         <button type="button" onclick="CalorieGraph();">Generate Pie Chart</button>
         <canvas id="Calorieratio" height="50"></canvas>
     </form>
-    <a href="{% url 'fitness:index' %}">Press to return home</a>
 </body>
 
 </html>
