@@ -17,11 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-<<<<<<< HEAD
     path('fitness/', include('fitness.urls')),
-=======
-    path('dafitnessapp/', include('dafitnessapp.urls')),
->>>>>>> da959304420b955789cf51f4e24d70ce347ab835
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
 ]

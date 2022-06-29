@@ -13,11 +13,7 @@ from .forms import CreateUserForm
 # Create your views here.
 def LoginView(request):
     if request.user.is_authenticated:
-<<<<<<< HEAD
         return redirect('fitness:home')
-=======
-        return redirect('dafitnessapp:home')
->>>>>>> da959304420b955789cf51f4e24d70ce347ab835
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -25,11 +21,7 @@ def LoginView(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-<<<<<<< HEAD
                 return redirect('fitness:home')
-=======
-                return redirect('dafitnessapp:home')
->>>>>>> da959304420b955789cf51f4e24d70ce347ab835
             else:
                 messages.info(request, 'Username or Password is incorrect')
         return render(request, 'accounts/login.html', {})
@@ -37,11 +29,7 @@ def LoginView(request):
 
 def SignUpView(request):
     if request.user.is_authenticated:
-<<<<<<< HEAD
         return redirect('fitness:home')
-=======
-        return redirect('dafitnessapp:home')
->>>>>>> da959304420b955789cf51f4e24d70ce347ab835
     else:
         if request.method == 'POST':
             form = CreateUserForm(request.POST)

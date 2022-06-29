@@ -37,11 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'fitness.apps.FitnessConfig',
-=======
-    'dafitnessapp.apps.DafitnessappConfig',
->>>>>>> da959304420b955789cf51f4e24d70ce347ab835
     'accounts',
 ]
 
