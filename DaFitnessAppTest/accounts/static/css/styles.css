@@ -1,0 +1,41 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #b97acc !important;
+}
+.user_card {
+    width: 360px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgb(82, 78, 78), 0 6px 20px 0 rgb(82, 78, 78);
+    border-radius: 4px;
+
+}
+
+.form_container {
+    margin-top: 20px;
+}
+
+#form-title{
+    color: black;
+    
+}
+
+.login_btn {
+    width: 100%;
+    background: #3385ff !important;
+    color: white !important;
+}
+#messages {
+    background-color: grey;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+}

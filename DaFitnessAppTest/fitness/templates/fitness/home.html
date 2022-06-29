@@ -1,0 +1,19 @@
+{% extends "fitness/base.html" %}
+
+{% block content %}
+<div class="text-box">
+    {% if user.is_authenticated %}
+        <h1> Welcome to Da Fitness App, {{request.user}}! <br><br></h1>
+    {% else %}
+        <h1> Welcome to Da Fitness App! <br><br></h1>
+    {% endif %}
+    <p>
+        This service provides a calculator for how much calories are burned naturally based on your information, as well as
+        a calorie tracker where you can fill out how many calories you consume throughout your day.<br>
+    </p>
+    {% if user.is_authenticated %}
+    {% else %}
+        Please <a href="{% url 'accounts:login' %}" class="ml-2">Sign In</a> or <a href="{% url 'accounts:signup' %}" class="ml-2">Create An Account</a> to get started.<br><br>
+    {% endif %}
+</div>
+{% endblock %}
