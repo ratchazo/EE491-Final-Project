@@ -81,6 +81,10 @@ nav{
     color: black;
 }
 
+.border-right {
+    border-right: 1px solid black;
+}
+
 nav .fa{
     display: none;
 }

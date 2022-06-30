@@ -59,7 +59,7 @@
             </nav>
             <h1>Daily Calorie Intake</h1>
             <div class="row">
-                <div class="column" style="background-color:#FFB695;">
+                <div class="col-md-6 border-right">
                     <script>
                         function CalorieGraph() {//from   w w  w. j  a v  a 2  s . c  o  m
                             var breakfast = document.CalorieForm.Breakfast.value,
@@ -94,10 +94,9 @@
                         Dinner: <br><input type="number" name="Dinner" value=""> cals<br><br>
                         Snacks: <br><input type="number" name="Snacks" value=""> cals<br><br>
                         <button type="button" onclick="CalorieGraph();">Generate Pie Chart</button>
-                        <!-- <canvas id="Calorieratio" height="50"></canvas> -->
                     </form>
                 </div>
-                <div class="column" style="background-color:#96D1CD;">
+                <div class="column">
                     <canvas id="Calorieratio" height="225"></canvas>
                 </div>
             </div>
