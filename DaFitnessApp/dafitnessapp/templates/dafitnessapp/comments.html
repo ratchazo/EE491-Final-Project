@@ -1,0 +1,27 @@
+{% extends "dafitnessapp/base.html" %}
+
+{% block content %}
+<html>
+    <h1>Comments/Suggestions</h1>
+    <p> 
+        Please feel free to input your opinions about this app below:
+    </p>
+    <br>
+    <br>
+    <!-- This is where the user can put in their thoughts, while being able to delete or update their messages -->
+    {% if dafitnessapp_list %}
+        <ul>
+        {% for dafitnessapp in dafitnessapp_list %}
+            <li>
+            {{ dafitnessapp.message }}
+            <span><a href="{% url 'dafitnessapp:update' dafitnessapp.id %}">edit</a></span>
+            <span><a href="{% url 'dafitnessapp:delete' dafitnessapp.id %}">delete</a></span>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No comments have been posted yet...</p>
+    {% endif %}
+    <a href="{% url 'dafitnessapp:create' %}">Create a new comment</a>
+</html>
+{% endblock %}

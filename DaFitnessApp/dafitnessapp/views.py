@@ -24,20 +24,26 @@ class ResultsView(generic.edit.CreateView):
     fields = ['message']
     success_url = reverse_lazy('dafitnessapp:home')
 
+class CommentsView(generic.ListView):
+    template_name = 'dafitnessapp/comments.html'
+    model = dafitnessapp
+    fields = ['message']
+    success_url = reverse_lazy('dafitnessapp:home')
+
 class CreateView(generic.edit.CreateView):
     template_name = 'dafitnessapp/create.html'
     model = dafitnessapp
     fields = ['message']
-    success_url = reverse_lazy('dafitnessapp:blogs') # more robust than hardcoding to /greetings/; directs user to index view after creating a greeting
+    success_url = reverse_lazy('dafitnessapp:comments') # more robust than hardcoding to /greetings/; directs user to index view after creating a greeting
 
 class UpdateView(generic.edit.UpdateView):
     template_name = 'dafitnessapp/update.html'
     model = dafitnessapp
     fields = ['message']
-    success_url = reverse_lazy('dafitnessapp:blogs')
+    success_url = reverse_lazy('dafitnessapp:comments')
 
 class DeleteView(generic.edit.DeleteView):
     template_name = 'dafitnessapp/delete.html' # override default of greetings/greeting_confirm_delete.html
     model = dafitnessapp
-    success_url = reverse_lazy('dafitnessapp:blogs')
+    success_url = reverse_lazy('dafitnessapp:comments')
     
