@@ -8,13 +8,13 @@
 
         function validate() {
 
-            // get the input
+            // Get the input from the HTML forms
             g = document.forms["input_form"]["gterm"].value;
             act = document.forms["input_form"]["actterm"].value;
             w = document.forms["input_form"]["wterm"].value;
             h = document.forms["input_form"]["hterm"].value;
             a = document.forms["input_form"]["aterm"].value;
-            // validate a, b, and c
+            // Make sure that the information they put are not zero or letters otherwise print a error message
 
             if (w == 0) {
                 outputText = "<em>Weight</em> cannot equal zero!"
@@ -80,13 +80,15 @@
 
             //output the result (or errors)
             document.getElementById("output_text").innerHTML = outputText;
-            //document.getElementById("error_text").innerHTML = errorText;
         }
     </script>
     <span>
         Please enter your information below:</p>
     </span>
     <!-- add into .js file later -->
+    <!-- Below is the code of how the user puts their information
+        The gender and ammount exercises will be filled through a drop down list.
+        The Weight, Height and Age will be inputs by typing the numbers in -->
     <form name="input_form" action="javascript:validate();">
         1. Gender (M/F):
         <select id="gterm">
