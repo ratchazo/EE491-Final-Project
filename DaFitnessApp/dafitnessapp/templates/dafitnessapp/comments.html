@@ -14,8 +14,7 @@
         {% for dafitnessapp in dafitnessapp_list %}
             <li>
             {{ dafitnessapp.message }}
-            <span><a href="{% url 'dafitnessapp:update' dafitnessapp.id %}">edit</a></span>
-            <span><a href="{% url 'dafitnessapp:delete' dafitnessapp.id %}">delete</a></span>
+            <a href="{% url 'dafitnessapp:update' dafitnessapp.id %}"><input type="submit" value="Edit"></a>
             </li>
         {% endfor %}
         </ul>
