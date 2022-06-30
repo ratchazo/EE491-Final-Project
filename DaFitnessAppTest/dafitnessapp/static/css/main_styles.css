@@ -9,7 +9,7 @@
 }
 
 .title, .title:hover{
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 18px;
 }
@@ -42,7 +42,7 @@ nav{
 }
 
 .navbar-nav ul li a{
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 18px;
 }

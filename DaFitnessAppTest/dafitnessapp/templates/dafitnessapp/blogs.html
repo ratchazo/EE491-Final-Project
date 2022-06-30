@@ -10,13 +10,13 @@
         {% for greeting in greeting_list %}
             <li>
             {{ greeting.message }}
-            <span><a href="{% url 'fitness:update' greeting.id %}">edit</a></span>
-            <span><a href="{% url 'fitness:delete' greeting.id %}">delete</a></span>
+            <span><a href="{% url 'dafitnessapp:update' greeting.id %}">edit</a></span>
+            <span><a href="{% url 'dafitnessapp:delete' greeting.id %}">delete</a></span>
             </li>
         {% endfor %}
         </ul>
     {% else %}
         <p>No blogs have been posted yet...</p>
     {% endif %}
-    <a href="{% url 'fitness:create' %}">Create a New Blog</a>
+    <a href="{% url 'dafitnessapp:create' %}">Create a New Blog</a>
 </html>
