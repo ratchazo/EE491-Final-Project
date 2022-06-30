@@ -1,4 +1,9 @@
+{% extends "dafitnessapp/base.html" %}
+
+{% block content %}
+<br>
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    <input type="submit" value="Send">
 </form>
+{% endblock %}
