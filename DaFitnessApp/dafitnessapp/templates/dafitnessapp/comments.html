@@ -3,24 +3,40 @@
 {% block content %}
 <html>
     <h1>Comments/Suggestions</h1>
-    <p> 
+    <p>
         Please feel free to input your opinions about this app below:
     </p>
-    <br>
-    <br>
+    <br><br>
     <!-- This is where the user can put in their thoughts, while being able to delete or update their messages -->
-    {% if dafitnessapp_list %}
-        <ul>
-        {% for dafitnessapp in dafitnessapp_list %}
-            <li>
-            {{ dafitnessapp.message }}
-            <a href="{% url 'dafitnessapp:update' dafitnessapp.id %}"><input type="submit" value="Edit"></a>
-            </li>
-        {% endfor %}
-        </ul>
+    {% if user.is_authenticated %}
+        <a href="{% url 'dafitnessapp:create' %}">Create a new comment</a>
     {% else %}
-        <p>No comments have been posted yet...</p>
+    Please <a href="{% url 'accounts:login' %}" class="ml-2">Sign In</a> or <a href="{% url 'accounts:signup' %}"
+        class="ml-2">Create An Account</a> to create a post.<br><br>
     {% endif %}
-    <a href="{% url 'dafitnessapp:create' %}">Create a new comment</a>
+
+    {% if dafitnessapp_list %}
+        {% for dafitnessapp in dafitnessapp_list %}
+        <article class="post">
+            <h2>{{ dafitnessapp.title }}</h2>
+            <time class="date">
+                Published By: {{ dafitnessapp.author }}
+                <br>
+                Created Date: {{ dafitnessapp.created_date }}
+            </time>
+            {% if user == dafitnessapp.author %}
+                {% if user.is_authenticated %}
+                    <aside class="actions">
+                        <a href="{% url 'dafitnessapp:update' pk=dafitnessapp.pk %}">Edit</a>
+                        <a href="{% url 'dafitnessapp:delete' pk=dafitnessapp.pk %}">Delete</a>
+                    </aside>
+                {% endif %}
+            {% endif %}
+            <p>{{ dafitnessapp.text|linebreaksbr }}</p>
+        </article>
+        {% endfor %}
+    {% else %}
+        <p>No Posts are available.</p>
+    {% endif %}
 </html>
 {% endblock %}

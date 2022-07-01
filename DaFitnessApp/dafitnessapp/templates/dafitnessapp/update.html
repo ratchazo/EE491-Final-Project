@@ -5,6 +5,11 @@
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Update">
-    <button><a href="{% url 'dafitnessapp:delete' dafitnessapp.id %}">Delete</a></button>
+    <a href="{% url 'dafitnessapp:delete' dafitnessapp.id %}">
+        <input type="button" value="Delete">
+    </a>
+    <a href="{% url 'dafitnessapp:comments' %}">
+        <input type="button" value="Go Back">
+    </a>
 </form>
 {% endblock %}

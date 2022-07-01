@@ -3,7 +3,12 @@
 {% block content %}
 <br>
 <form method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object.message }}"?</p>
-    <input type="submit" value="Confirm">
+    <p>Are you sure you want to delete the post titled "{{ object.title }}"?</p>
+    <form action="{% url 'dafitnessapp:comments' %}">
+        <input type="submit" value="Confirm" />
+    </form>
+    <a href="{% url 'dafitnessapp:comments' %}">
+        <input type="button" value="Home" />
+    </a>
 </form>
 {% endblock %}
