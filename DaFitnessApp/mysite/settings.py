@@ -132,4 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
 
-CSRF_TRUSTED_ORIGINS = ["https://da-fitness-app.herokuapp.com/"]
+CSRF_TRUSTED_ORIGINS = ["https://da-fitness-app.herokuapp.com"]
